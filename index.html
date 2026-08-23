@@ -3,41 +3,1136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sathish kumar </title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>For Ramya ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #08030a;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .bg {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            background:
+                radial-gradient(circle at 50% 40%,
+                    rgba(255, 30, 110, .15),
+                    transparent 30%),
+                radial-gradient(circle at 20% 80%,
+                    rgba(255, 0, 90, .08),
+                    transparent 30%),
+                #08030a;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            z-index: -4;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: .15;
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.8);
+            }
+        }
+
+        /* =========================
+           INTRO SCREEN
+        ========================= */
+
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background:
+                radial-gradient(circle,
+                    rgba(130, 0, 55, .25),
+                    transparent 35%),
+                #08030a;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            transition: 1.2s ease;
+        }
+
+        .intro-content {
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .secret {
+            font-size: 13px;
+            letter-spacing: 5px;
+            color: #ff6b9d;
+            margin-bottom: 25px;
+        }
+
+        .intro-title {
+            font-size: clamp(35px, 8vw, 70px);
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .intro-title span {
+            color: #ff3979;
+            font-weight: 700;
+        }
+
+        .intro-subtitle {
+            color: #bda9b2;
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+
+        .envelope {
+            width: 190px;
+            height: 130px;
+            margin: 0 auto 40px;
+            position: relative;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.08);
+        }
+
+        .env-body {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #d91d5b, #77102f);
+            border-radius: 8px;
+            box-shadow:
+                0 0 40px rgba(255, 40, 110, .35);
+        }
+
+        .env-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 95px solid transparent;
+            border-right: 95px solid transparent;
+            border-top: 75px solid #f23a76;
+            transform-origin: top;
+            transition: .8s;
+            z-index: 3;
+        }
+
+        .env-heart {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 38px;
+            z-index: 5;
+        }
+
+        .envelope.open .env-flap {
+            transform: rotateX(180deg);
+        }
+
+        .open-text {
+            color: #aaa;
+            font-size: 14px;
+            animation: pulseText 2s infinite;
+        }
+
+        @keyframes pulseText {
+            50% {
+                opacity: .4;
+            }
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        #main {
+            display: none;
+            opacity: 0;
+            transition: 2s;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .to {
+            color: #ff75a4;
+            letter-spacing: 6px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 12vw, 130px);
+            line-height: .9;
+            font-weight: 800;
+            color: #ff3979;
+            text-shadow:
+                0 0 20px rgba(255, 40, 110, .4),
+                0 0 80px rgba(255, 40, 110, .2);
+            animation: heartbeat 2s infinite;
+        }
+
+        .hero h2 {
+            font-size: clamp(30px, 6vw, 65px);
+            margin-top: 15px;
+        }
+
+        .hero p {
+            margin: 30px auto;
+            max-width: 650px;
+            color: #c8b6bf;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.04);
+            }
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn {
+            border: 1px solid #ff3979;
+            background: rgba(255, 30, 100, .08);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .4s;
+        }
+
+        .btn:hover {
+            background: #ff3979;
+            box-shadow: 0 0 35px rgba(255, 30, 100, .5);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section:not(.hero) {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #ff3979;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #9e8992;
+            margin-bottom: 55px;
+        }
+
+        /* =========================
+           LOVE LETTER
+        ========================= */
+
+        .letter {
+            max-width: 850px;
+            margin: auto;
+            padding: 55px;
+            border: 1px solid rgba(255, 70, 120, .2);
+            border-radius: 25px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.05),
+                    rgba(255,20,90,.03)
+                );
+
+            box-shadow:
+                0 20px 80px rgba(0,0,0,.4);
+        }
+
+        .letter h3 {
+            text-align: center;
+            color: #ff5b91;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .letter p {
+            color: #d7c7cd;
+            line-height: 2;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .signature {
+            text-align: right;
+            color: #ff3979;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        /* =========================
+           MEMORIES
+        ========================= */
+
+        .gallery {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 25px;
+        }
+
+        .photo {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.08);
+            padding: 10px;
+            border-radius: 18px;
+            transition: .5s;
+        }
+
+        .photo:hover {
+            transform: translateY(-10px) rotate(1deg);
+            border-color: rgba(255,60,120,.5);
+            box-shadow: 0 20px 50px rgba(255,0,80,.15);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .photo p {
+            text-align: center;
+            padding: 15px 5px 8px;
+            color: #d8c5cd;
+        }
+
+        /* =========================
+           FINAL SURPRISE
+        ========================= */
+
+        .final {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 30, 100, .12),
+                    transparent 45%
+                );
+        }
+
+        .gift-box {
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .gift {
+            font-size: 120px;
+            animation: gift 1.5s infinite;
+            filter: drop-shadow(
+                0 0 25px rgba(255,30,100,.5)
+            );
+        }
+
+        @keyframes gift {
+            0%, 100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(3deg);
+            }
+        }
+
+        .final-message {
+            display: none;
+            margin: 40px auto 0;
+            max-width: 700px;
+            animation: reveal 1.5s ease;
+        }
+
+        .final-message h2 {
+            font-size: clamp(35px, 7vw, 70px);
+            color: #ff3979;
+            margin-bottom: 25px;
+        }
+
+        .final-message p {
+            color: #d7c5cd;
+            line-height: 2;
+            font-size: 18px;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: scale(.7);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        .music {
+            text-align: center;
+            padding-bottom: 100px;
+        }
+
+        .music-circle {
+            width: 100px;
+            height: 100px;
+            margin: auto;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: rgba(255,30,100,.1);
+            border: 1px solid #ff3979;
+
+            font-size: 40px;
+            cursor: pointer;
+
+            transition: .4s;
+        }
+
+        .music-circle:hover {
+            background: #ff3979;
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255,30,100,.5);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            border-top: 1px solid rgba(255,255,255,.05);
+            color: #89747d;
+        }
+
+        footer strong {
+            color: #ff3979;
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .floating-heart {
+            position: fixed;
+            bottom: -30px;
+            pointer-events: none;
+            z-index: 10;
+            animation: floatUp linear forwards;
+        }
+
+        @keyframes floatUp {
+
+            0% {
+                transform: translateY(0) scale(.5);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    translateX(var(--move))
+                    scale(1.3);
+
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:600px) {
+
+            .letter {
+                padding: 30px 22px;
+            }
+
+            .letter p {
+                font-size: 15px;
+            }
+
+            .photo img {
+                height: 330px;
+            }
+
+            .gift {
+                font-size: 90px;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
-    <header>
-        <h1> First website with simple for you Samiyaa</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
 
-    <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>Hello chlm ena panra </p>
-            <img src="sample pic.jpg" /img>
-        </section>
+<div class="bg"></div>
+<div class="stars" id="stars"></div>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p> Ipo ithu simple irukum . sikiram nalla panra ok vaaa.</p>
-        </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email me at: <a href="mailto:hello@example.com">hello@example.com</a></p>
-        </section>
-    </main>
+<!-- =================================
+     SECRET INTRO
+================================= -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="secret">
+            🔐 HERE IS A SURPRICE
+        </div>
+
+        <div class="intro-title">
+            Something special<br>
+            is waiting for <span>you</span>...
+        </div>
+
+        <p class="intro-subtitle">
+            Only one person can open this. ❤️
+        </p>
+
+        <div
+            class="envelope"
+            id="envelope"
+            onclick="openEnvelope()"
+        >
+
+            <div class="env-body"></div>
+
+            <div class="env-flap"></div>
+
+            <div class="env-heart">
+                ❤️
+            </div>
+
+        </div>
+
+        <div class="open-text">
+            Tap the heart to open
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =================================
+     MAIN WEBSITE
+================================= -->
+
+<div id="main">
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="to">
+                THIS IS ONLY FOR
+            </div>
+
+            <h1>
+                RAMYA
+            </h1>
+
+            <h2>
+                ❤️ My Kullaei ❤️
+            </h2>
+
+            <p>
+                Enoda life-la enaku ellamuma irunthu,
+                ena accept pani, enoda ella kasta nerathulayum
+                en kuda irunthu, ena care pani pathukira
+                enoda azhaga Chlm-ku... 🥹❤️
+            </p>
+
+            <button
+                class="btn"
+                onclick="goToLetter()"
+            >
+                Open My Heart ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- LOVE LETTER -->
+
+    <section id="letter">
+
+        <h2 class="section-title">
+            A Letter <span>For You</span> 💌
+        </h2>
+
+        <p class="section-subtitle">
+            En manasula irunthu unakaga...
+        </p>
+
+
+        <div class="letter">
+
+            <h3>
+                To My Kullaei ❤️
+            </h3>
+
+            <p>
+                Enaku ellamuma irunthu, ena accept pani,
+                enoda ella kasta nerathulayum en kuda irunthu,
+                ena care pani pathukira enoda azhaga Chlm... 🥹❤️
+            </p>
+
+            <p>
+                Nee en life-la vandhathuku apram,
+                en life romba beautiful-ah maariduchu.
+                En sandhosham, en kashtam, en kovam,
+                en happiness ellathulayum nee en kuda iruka.
+            </p>
+
+            <p>
+                Enna vida enna better-ah purinjukura
+                oru person en life-la irukanga-na
+                adhu nee dhaan Kullaei. ❤️
+            </p>
+
+            <p>
+                Naan perfect illa...
+                Aana unakaga better person-ah irukanum-nu
+                eppovume try pannitu iruppen. 🫶
+            </p>
+
+            <p>
+                Un kooda irukura every moment-um enaku special.
+                Innum neraya memories namma serndhu create
+                pannanum. Innum neraya birthdays un kooda
+                celebrate pannanum. ❤️
+            </p>
+
+            <p>
+                <strong>
+                    Enoda Azhaga Chlm...
+                    Enoda Pondatti...
+                    Happy Birthday! 🎂❤️
+                </strong>
+            </p>
+
+            <div class="signature">
+                Always Yours ❤️
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MEMORIES -->
+
+    <section>
+
+        <h2 class="section-title">
+            Our <span>Memories</span> 📸
+        </h2>
+
+        <p class="section-subtitle">
+            Every picture has a story...
+        </p>
+
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img src="kiss.jpeg">
+                <p>Our Beautiful Moment ❤️</p>
+            </div>
+
+            <div class="photo">
+                <img src="we.jpeg">
+                <p>My Favorite Person 🥹💕</p>
+            </div>
+
+            <div class="photo">
+                <img src="marriage.jpeg">
+                <p>Us Together 🫶</p>
+            </div>
+
+            <div class="photo">
+                <img src="school.jpeg">
+                <p>Forever Memory ❤️</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MUSIC -->
+
+    <section class="music">
+
+        <h2 class="section-title">
+            Our <span>Song</span> 🎵
+        </h2>
+
+        <p class="section-subtitle">
+            Play this while remembering us ❤️
+        </p>
+
+        <div
+            class="music-circle"
+            onclick="toggleMusic()"
+        >
+            🎵
+        </div>
+
+        <audio id="music" loop>
+            <source src="sirrukivasam.mp3" type="audio/mpeg">
+        </audio>
+
+    </section>
+
+
+    <!-- FINAL SURPRISE -->
+
+    <section class="final">
+
+        <div>
+
+            <h2 class="section-title">
+                One Last <span>Surprise</span> 🎁
+            </h2>
+
+            <p class="section-subtitle">
+                You haven't seen everything yet... 👀
+            </p>
+
+
+            <div
+                class="gift-box"
+                onclick="openGift()"
+            >
+
+                <div class="gift">
+                    🎁
+                </div>
+
+                <p>
+                    Tap the gift ❤️
+                </p>
+
+            </div>
+
+
+            <div
+                class="final-message"
+                id="finalMessage"
+            >
+
+                <h2>
+                    I LOVE YOU ❤️
+                </h2>
+
+                <p>
+
+                    Unaku enna gift venum-nu enaku theriyala...
+
+                    <br><br>
+
+                    Aana enoda heart full-ah
+                    unaku kuduthuten. ❤️
+
+                    <br><br>
+
+                    Nee happy-ah irukanum.
+                    Eppovume smile pannitu irukanum.
+
+                    <br><br>
+
+                    Un smile-ah paathale enaku happiness. 🥹💕
+
+                    <br><br>
+
+                    <strong>
+                        Happy Birthday Enoda Kullaei! 🎂❤️
+                    </strong>
+
+                    <br>
+
+                    Love you forever. 💖♾️
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
     <footer>
-        <p>&copy; 2026 My Website. All rights reserved.</p>
+
+        Made with ❤️ for
+        <strong>Ramya</strong>
+
+        <br><br>
+
+        You are my everything. 🫶
+
     </footer>
 
-    <script src="script.js"></script>
+</div>
+
+
+<script>
+
+    /* =========================
+       CREATE STARS
+    ========================= */
+
+    const stars = document.getElementById("stars");
+
+    for (let i = 0; i < 120; i++) {
+
+        const star = document.createElement("div");
+
+        star.className = "star";
+
+        star.style.left =
+            Math.random() * 100 + "%";
+
+        star.style.top =
+            Math.random() * 100 + "%";
+
+        star.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        stars.appendChild(star);
+    }
+
+
+    /* =========================
+       OPEN ENVELOPE
+    ========================= */
+
+    function openEnvelope() {
+
+        const envelope =
+            document.getElementById("envelope");
+
+        envelope.classList.add("open");
+
+        createExplosion();
+
+        setTimeout(() => {
+
+            document.getElementById("intro").style.opacity = "0";
+
+        }, 900);
+
+        setTimeout(() => {
+
+            document.getElementById("intro").style.display = "none";
+
+            const main =
+                document.getElementById("main");
+
+            main.style.display = "block";
+
+            setTimeout(() => {
+
+                main.style.opacity = "1";
+
+            }, 100);
+
+        }, 1900);
+
+    }
+
+
+    /* =========================
+       SCROLL TO LETTER
+    ========================= */
+
+    function goToLetter() {
+
+        document
+            .getElementById("letter")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    function toggleMusic() {
+
+        const music =
+            document.getElementById("music");
+
+        if (music.paused) {
+
+            music.play();
+
+        } else {
+
+            music.pause();
+
+        }
+
+    }
+
+
+    /* =========================
+       FINAL GIFT
+    ========================= */
+
+    function openGift() {
+
+        const message =
+            document.getElementById("finalMessage");
+
+        if (message.style.display === "block") {
+
+            message.style.display = "none";
+
+        } else {
+
+            message.style.display = "block";
+
+            createExplosion();
+
+        }
+
+    }
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================= */
+
+    function floatingHeart() {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "floating-heart";
+
+        const icons = [
+            "❤️",
+            "💕",
+            "💖",
+            "💗",
+            "💓"
+        ];
+
+        heart.innerHTML =
+            icons[
+                Math.floor(
+                    Math.random() * icons.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            Math.random() * 20 + 15 + "px";
+
+        heart.style.setProperty(
+            "--move",
+            (Math.random() * 200 - 100) + "px"
+        );
+
+        heart.style.animationDuration =
+            Math.random() * 4 + 5 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+
+            heart.remove();
+
+        }, 9000);
+
+    }
+
+    setInterval(floatingHeart, 700);
+
+
+    /* =========================
+       HEART EXPLOSION
+    ========================= */
+
+    function createExplosion() {
+
+        for (let i = 0; i < 50; i++) {
+
+            const heart =
+                document.createElement("div");
+
+            heart.innerHTML = "❤️";
+
+            heart.style.position = "fixed";
+
+            heart.style.left = "50%";
+            heart.style.top = "50%";
+
+            heart.style.fontSize =
+                Math.random() * 25 + 15 + "px";
+
+            heart.style.zIndex = "2000";
+
+            heart.style.pointerEvents =
+                "none";
+
+            const x =
+                (Math.random() - .5) * 700;
+
+            const y =
+                (Math.random() - .5) * 700;
+
+            heart.animate(
+
+                [
+                    {
+                        transform:
+                            "translate(-50%,-50%) scale(0)",
+                        opacity: 1
+                    },
+
+                    {
+                        transform:
+                            `translate(${x}px,${y}px) scale(1.5)`,
+                        opacity: 0
+                    }
+                ],
+
+                {
+                    duration: 1600,
+                    easing: "cubic-bezier(.2,.8,.2,1)"
+                }
+
+            );
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 1700);
+
+        }
+
+    }
+
+</script>
+
 </body>
 </html>
